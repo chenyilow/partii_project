@@ -1,3 +1,17 @@
+# Copyright 2025 [Your Name]
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 # d = {0: 62103, 1: 7673, 3: 2274, 101: 169, 5: 219, 2: 1117, 100: 530, 7: 627, 6: 346, -1: 282, 102: 329, 104: 38, 4: 114}
 # print(d[0], d[1] + d[-1] + d[100] + d[101] + d[102] + d[104], d[2] + d[4] + d[6], d[3] + d[5] + d[7] )
 # 62103 9021 1577 3120
