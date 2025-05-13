@@ -1,0 +1,6 @@
+item_id,L1,L2,Position,HeadN,Oblig,Error,Target,ErType,ErType2,Ntype,Synt,modif
+1,"""We 've known each other for only half a year , but his lessons were a lot of fun .""","""We 've known each other for only half a year , but his lesson was a lot of fun .""",11,year,obl,correct,a,correct_a,correct_art,sing,obj,no_mod
+2,I heard a sentence last night when I was watching TV .,I heard a sentence last night when I watched TV .,3,sentence,obl,correct,a,correct_a,correct_art,sing,obj,no_mod
+3,I heard a sentence last night when I was watching TV .,I heard a sentence last night when I watched TV .,9,TV,obl_om,correct,zero,correct_zero,correct_om,sing,obj,no_mod
+4,It is like when you are confronted with frustration and you have to keep your confidence .,"""It is like when you are confronted with frustration , you have to keep your confidence .""",8,frustration,obl_om,correct,zero,correct_zero,correct_om,sing,obj,no_mod
+5,"""When I was at school , we painted a lot of wooden handywork , like small plates and cases .""","""When I was at school , we painted a lot of wooden handicrafts like small plates and cases .""",10,lot,obl,correct,a,correct_a,correct_art,sing,obj,no_mod

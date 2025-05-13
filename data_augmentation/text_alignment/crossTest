@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ $# -lt 2 ]; then
+  echo "Usage: `basename $0` <directory output by training> <test data> [Cross-EM options]"
+  exit 1
+fi
+
+d=$1
+s=$2
+shift
+shift
+exec ./crossTrain $d/hmm/options.map $d.test -loadParamsDir $d/hmm -iters 0 -saveParams false -train $s "$@" | grep -v ERROR:

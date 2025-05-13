@@ -1,0 +1,56 @@
+log.maxIndLevel	10
+log.msPerLine	1000
+log.file	out/model1/log
+log.stdout	true
+log.note	
+main.enExt	e
+main.frExt	f
+main.allTrainSource	
+main.trainSources	data/train data/test data/finaltest
+main.testSources	data/test
+main.allTestSources	
+main.sentences	MAX
+main.maxTestSentences	2147483647
+main.offsetTestSentences	0
+main.iters	5
+main.model	MODEL1
+main.mode	BOTH_INDEP
+main.useNormedObjective	false
+main.lowercaseWords	true
+main.appendOccurToWord	false
+main.loadParamsDir	
+main.wpStatsFile	
+main.saveParams	true
+main.saveAlignOutput	true
+main.alignIntUnion	false
+main.outputTestPosteriors	false
+main.combineMethod	multiply
+main.computeWpStats	false
+main.condenseAlignOutput	false
+main.rantOutput	false
+exec.execPoolDir	execs
+exec.actualExecPoolDir	
+exec.create	
+exec.monitor	false
+exec.printOptionsAndExit	false
+exec.writeExecDirName	
+exec.jarFiles	
+exec.charEncoding	
+exec.addToView	
+exec.miscOptions	
+exec.execId	
+exec.execDir	out/model1
+hmm.stateType	ENDS
+em.nullProb	1.0
+em.usePosteriorDecoding	true
+em.posteriorDecodingThreshold	0.5
+em.mergeConsiderNull	false
+em.mergeOnlyOnLastIteration	false
+em.exactJointExp	false
+em.handleUnknownWords	true
+em.useVariational	false
+em.useSampling	false
+em.elementConcentration	NaN
+em.totalConcentration	NaN
+em.distortTotalConcentration	NaN
+em.random	1

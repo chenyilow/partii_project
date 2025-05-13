@@ -1,0 +1,8 @@
+To reproduce the results from the Alignment by Agreement paper:
+
+- Get the Hansards data and put it in the data directory as shown in files.list.
+- Run crossTrain on naacl06.conf
+- The out directory contains some files which shows you what you should get.
+  The best AER attained is by setting the posteriorThreshold to 0.39,
+  which yields an AER of 5.1574 on the development set.
+  Using this threshold on the finaltest yields an AER of 4.9351.

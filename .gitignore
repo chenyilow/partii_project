@@ -3,7 +3,8 @@ __pycache__/
 .ipynb_checkpoints/
 .DS_Store
 env/
-distilbert/results/**/checkpoint-*/optimizer.pt
-distilbert/results_synthetic/**/checkpoint-*/optimizer.pt
-
-
+distilbert/results/**/checkpoint-*/
+distilbert/results_synthetic/**/checkpoint-*/
+data_augmentation/text_alignment/sample.out/
+discarded code/distilbert_model/model.safetensors
+datasets/parallel_corpus/lang8_Eng_1.0.xml

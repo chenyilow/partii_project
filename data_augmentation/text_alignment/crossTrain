@@ -1,0 +1,49 @@
+#!/usr/bin/ruby
+
+if ARGV.size < 2 then
+  puts "Usage: #{$0} <configuration file> <output directory> [Cross-EM options...]"
+  exit 1
+end
+confFile, execDir, *args = ARGV
+
+if File.exists?(execDir) then
+  puts "#{execDir} already exists; either use a new directory or delete this one."
+  exit 1
+end
+exit 1 unless system "mkdir #{execDir}"
+puts "Created #{execDir}"
+
+javaOpts = "-mx2660m"
+d = File.dirname $0
+classPath = "classes"
+
+run = lambda { |execSubDir, myArgs|
+  # Build arguments
+  myArgs = [
+    "java", "-cp", classPath, "-ea", javaOpts, "-server", "cross.Main", "-create",
+    "++#{confFile}",
+    "-execDir", execSubDir
+  ] + myArgs
+
+  # Build command; quote arguments that contain spaces
+  def quote(a); a.map { |s| s =~ / / ? "'"+s+"'" : s }.join(" ") end
+  cmd = quote(myArgs)
+
+  # Execute!
+  puts "Executing: #{cmd}"
+  exit 1 unless system cmd
+}
+
+if execDir =~ /test$/ then # HACK
+  run.call("#{execDir}/hmm", ["-model", "HMM", "-stateType", "ENDS"] + args)
+else
+  # Note that the model 1s are trained independently, and HMM models are trained jointly
+  run.call("#{execDir}/model1", ["-model", "MODEL1", '-mode', 'BOTH_INDEP'] + args)
+  run.call("#{execDir}/hmm", ["-model", "HMM", '-mode', 'BOTH_JOINT', "-stateType", "ENDS", "-loadParamsDir", "#{execDir}/model1"] + args)
+end
+
+exit 1 unless system "ln -s hmm/englishToFrench.giza #{execDir}/int.alignOutput.giza"
+exit 1 unless system "ln -s hmm/frenchToEnglish.giza #{execDir}/union.alignOutput.giza"
+n = 100
+exit 1 unless system "java -cp #{classPath} cross.GizaReader -maxSentences #{n} -inFile #{execDir}/int.alignOutput.giza -txtOutFile #{execDir}/int-#{n}.alignOutput.txt"
+exit 1 unless system "java -cp #{classPath} cross.GizaReader -maxSentences #{n} -inFile #{execDir}/union.alignOutput.giza -txtOutFile #{execDir}/union-#{n}.alignOutput.txt"

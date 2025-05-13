@@ -1,0 +1,184 @@
+import pandas as pd
+from datasets import Dataset
+from transformers import AutoTokenizer, AutoModelForTokenClassification, Trainer, TrainingArguments
+from sklearn.metrics import accuracy_score, precision_recall_fscore_support
+from sklearn.model_selection import KFold
+import torch
+from transformers import DistilBertForTokenClassification
+import torch.nn.functional as F
+from transformers import AutoConfig
+from transformers import set_seed
+from transformers.modeling_outputs import TokenClassifierOutput
+
+class WeightedDistilBert(DistilBertForTokenClassification):
+    def __init__(self, config, class_weights):
+        super().__init__(config)
+        self.class_weights = class_weights
+
+    def compute_loss(self, model, inputs, return_outputs=False):
+        labels = inputs.get("labels")
+        outputs = self(**inputs)
+        logits = outputs.logits
+        loss = F.cross_entropy(
+            logits.view(-1, self.num_labels),
+            labels.view(-1),
+            weight=self.class_weights.to(logits.device),
+        )
+        print(loss)
+        return (loss, outputs) if return_outputs else loss
+
+
+col = "def" # Other uses: "ref", "def", "Hawkins"
+
+if col == "ref":
+    label_map = {"CLS": 0, "SEP": 0, "PAD": 0, '-': 1, 'pred/prop': 2, 'ref': 3, 'nonref': 4, 'id_pred': 5}
+elif col == "def":
+    label_map = {"CLS": 0, "SEP": 0, "PAD": 0, '-': 1, 'def': 2, 'indef': 3}
+elif col == "Hawkins":
+    label_map = {"CLS": 0, "SEP": 0, "PAD": 0, '-': 1, 'indef': 2, 'situational': 3, 'explanatory': 4, 'anaphoric': 5, 'kind': 6}
+
+df = pd.read_csv("conll.csv")
+# df = df.iloc[:1000, :]
+
+def vectorise(column):
+    sequences = []
+    current_sequence = []
+    sentence = []
+    for _, row in df.iterrows():
+        if pd.notna(row["POS Tag"]):
+            if row["POS Tag"] != "-":  # Continue collecting words
+                sentence.append(row[column])
+            else: # End of a sentence in a paragraph
+                current_sequence.append(sentence)
+                sentence = []
+        else:  # End of a paragraph
+            sequences.append(current_sequence)
+            current_sequence = []
+    return sequences
+
+def flatten(xss):
+    return [x for xs in xss for x in xs]
+
+def preprocess_data(sentences, labels, tokenizer):
+    input_ids, attention_masks, label_sequences = [], [], []
+    for sentence, label in zip(sentences, labels):
+        encoding = tokenizer(sentence, padding="max_length", truncation=True, max_length=256, return_tensors="pt", is_split_into_words=True)
+        new_labels = [0] # initialise -1 for [CLS]
+
+        for word, pos in zip(sentence, label):
+            word_tokens = tokenizer.tokenize(word)
+            for _ in word_tokens:
+                new_labels.append(pos)
+
+        new_labels.append(0) # add -2 for [SEP]
+        new_labels += [0] * (256 - len(new_labels)) # for padding
+
+        input_ids.append(encoding["input_ids"].squeeze(0).tolist())
+        attention_masks.append(encoding["attention_mask"].squeeze(0).tolist())
+        label_sequences.append(new_labels)
+
+    return input_ids, attention_masks, label_sequences
+
+def generate_dataset(col):
+    word_vector = flatten(vectorise("Word"))
+    label_vector = flatten(vectorise(col))
+    converted_label_vector = [[label_map[label] for label in sentence] for sentence in label_vector]
+    tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
+    input_ids, attention_masks, label_sequences = preprocess_data(word_vector, converted_label_vector, tokenizer)
+
+    dataset = Dataset.from_dict({
+        'input_ids': input_ids,
+        'attention_mask': attention_masks,
+        'labels': label_sequences
+    })
+    return dataset
+
+def compute_metrics(p):
+    preds = p.predictions.argmax(axis=-1)
+    labels = p.label_ids
+
+    # Flatten predictions & labels
+    preds = preds.flatten()
+    labels = labels.flatten()
+
+    # Mask: Ignore PAD (0) and label '-' (1), keep only labels >1
+    mask = labels > 1
+    filtered_preds = preds[mask]
+    filtered_labels = labels[mask]
+
+    if len(filtered_labels) == 0:  # Avoid division by zero
+        return {"accuracy": 0.0, "precision": 0.0, "recall": 0.0, "f1": 0.0}
+
+    # Compute precision, recall, and F1-score (excluding ignored labels)
+    precision, recall, f1, _ = precision_recall_fscore_support(
+        filtered_labels, filtered_preds, labels=[i for i in range(len(label_map)-2)], average=None, zero_division=0
+    )
+
+    return {
+        "accuracy": accuracy_score(filtered_labels, filtered_preds),
+        "precision": precision.tolist(),
+        "recall": recall.tolist(),
+        "f1": f1.tolist()
+    }
+
+def generate_results(col, folds=10, random_state=42):
+    set_seed(random_state)
+    # Placeholder for storing results
+    all_logs = []
+    kf = KFold(n_splits=folds, shuffle=True, random_state=random_state)
+    dataset = generate_dataset(col)
+    for fold, (train_index, test_index) in enumerate(kf.split(dataset)):
+        print(f"Fold {fold+1}:")
+        
+        train_dataset = dataset.select(train_index)
+        test_dataset = dataset.select(test_index)
+
+        weights = torch.tensor([1, 1, 0.7, 1])
+        config = AutoConfig.from_pretrained("distilbert-base-uncased", num_labels=len(label_map)-2)
+        model = WeightedDistilBert(config, class_weights=weights)
+
+        # Define training arguments
+        training_args = TrainingArguments(
+            output_dir=f'./results_synthetic/{col}/fold_{fold+1}',
+            eval_strategy="epoch",  
+            save_strategy="epoch",
+            learning_rate=2e-5,
+            per_device_train_batch_size=8,
+            per_device_eval_batch_size=16,
+            num_train_epochs=3,
+            weight_decay=0.01,
+            remove_unused_columns=False,
+            seed=random_state
+        )
+
+        # Initialize Trainer
+        trainer = Trainer(
+            model=model,
+            args=training_args,
+            train_dataset=train_dataset,
+            eval_dataset=test_dataset,
+            compute_metrics=compute_metrics,
+        )
+
+        # Train the model
+        trainer.train()
+
+        # Evaluate the model
+        for log in trainer.state.log_history:
+            if "eval_loss" in log:
+                all_logs.append({
+                    "Fold": fold + 1,
+                    "Epoch": log.get("epoch"),
+                    "Accuracy": log.get("eval_accuracy"),
+                    "Precision": log.get("eval_precision"),
+                    "Recall": log.get("eval_recall"),
+                    "F1 Score": log.get("eval_f1")
+                })
+    results_df = pd.DataFrame(all_logs)
+
+    # Save to CSV
+    results_df.to_csv(f"results_synthetic/cross_validation_results_{col.lower()}.csv", index=False)
+
+    print(f"Results saved to results_synthetic/cross_validation_results_{col.lower()}.csv")
+
+generate_results(col)

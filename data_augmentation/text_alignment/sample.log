@@ -1,0 +1,1214 @@
+Created out
+Executing: java -cp classes -ea -mx1660m -server cross.Main -create ++sample.conf -execDir out/model1 -model MODEL1
+main() {
+  Execution directory: out/model1
+  Reading files {
+    readSentencePairs(sampleData/train) {
+      Reading 1/3: /Users/pliang/research/mt/cross/cross-em-aligner/sampleData/train/hansard.36.1.house.debates.001
+      Reading 2/3: /Users/pliang/research/mt/cross/cross-em-aligner/sampleData/train/hansard.36.1.house.debates.002
+      Reading 3/3: /Users/pliang/research/mt/cross/cross-em-aligner/sampleData/train/hansard.36.1.house.debates.003
+    }
+    readSentencePairs(sampleData/test) {
+      Reading 1/1: /Users/pliang/research/mt/cross/cross-em-aligner/sampleData/test/trial
+    }
+    readSentencePairs(sampleData/test) {
+      Reading 1/1: /Users/pliang/research/mt/cross/cross-em-aligner/sampleData/test/trial
+    }
+    ... 2 lines omitted ...
+  }
+  jointTrain(): 2420 sentences; merge = true {
+    Iteration 1/5 {
+      Sentence 0/2420
+      Sentence 1/2420
+      Sentence 2/2420
+      Sentence 9/2420
+      Sentence 33/2420
+      Sentence 101/2420
+      Sentence 248/2420
+      Sentence 506/2420
+      Sentence 750/2420
+      Sentence 1003/2420
+      Sentence 1296/2420
+      Sentence 1568/2420
+      Sentence 1831/2420
+      Sentence 2084/2420
+      Sentence 2330/2420
+      Change in parameters: 4.94e-10/ << 0.011 >> /0.908 (445244)
+      AER = 0.806383
+      Change in parameters: 0/ << 0.014 >> /0.941 (444165)
+      AER = 0.820144
+      Log-likelihood 1 = -283202.004
+      Log-likelihood 2 = -235351.461
+      AER 1+2 = 0.966
+      ... 2417 lines omitted ...
+    } [10s, cum. 10s]
+    Iteration 2/5 {
+      Sentence 0/2420
+      Sentence 1/2420
+      Sentence 2/2420
+      Sentence 102/2420
+      Sentence 473/2420
+      Sentence 787/2420
+      Sentence 1101/2420
+      Sentence 1436/2420
+      Sentence 1748/2420
+      Sentence 2032/2420
+      Sentence 2303/2420
+      Change in parameters: 5.97e-08/ << 0.006 >> /0.835 (445244)
+      AER = 0.339947
+      Change in parameters: 0/ << 0.007 >> /0.835 (444165)
+      AER = 0.336377
+      Log-likelihood 1 = -283011.011
+      Log-likelihood 2 = -237008.387
+      AER 1+2 = 0.517
+      ... 2421 lines omitted ...
+    } [10s, cum. 21s]
+    Iteration 3/5 {
+      Sentence 0/2420
+      Sentence 1/2420
+      Sentence 2/2420
+      Sentence 98/2420
+      Sentence 466/2420
+      Sentence 776/2420
+      Sentence 1085/2420
+      Sentence 1421/2420
+      Sentence 1733/2420
+      Sentence 2019/2420
+      Sentence 2291/2420
+      Change in parameters: 2.46e-13/ << 0.004 >> /0.727 (445244)
+      AER = 0.327664
+      Change in parameters: 1.11e-16/ << 0.006 >> /0.726 (444165)
+      AER = 0.328605
+      Log-likelihood 1 = -218718.370
+      Log-likelihood 2 = -184870.287
+      AER 1+2 = 0.286
+      ... 2421 lines omitted ...
+    } [10s, cum. 31s]
+    Iteration 4/5 {
+      Sentence 0/2420
+      Sentence 1/2420
+      Sentence 2/2420
+      Sentence 90/2420
+      Sentence 441/2420
+      Sentence 753/2420
+      Sentence 1052/2420
+      Sentence 1387/2420
+      Sentence 1693/2420
+      Sentence 1980/2420
+      Sentence 2252/2420
+      Change in parameters: 4.57e-27/ << 0.002 >> /0.541 (445244)
+      AER = 0.336283
+      Change in parameters: 1.29e-26/ << 0.003 >> /0.578 (444165)
+      AER = 0.339346
+      Log-likelihood 1 = -217278.510
+      Log-likelihood 2 = -182512.307
+      AER 1+2 = 0.279
+      ... 2421 lines omitted ...
+    } [10s, cum. 41s]
+    Iteration 5/5 {
+      Sentence 0/2420
+      Sentence 1/2420
+      Sentence 2/2420
+      Sentence 95/2420
+      Sentence 431/2420
+      Sentence 722/2420
+      Sentence 995/2420
+      Sentence 1315/2420
+      Sentence 1613/2420
+      Sentence 1884/2420
+      Sentence 2145/2420
+      Sentence 2399/2420
+      Change in parameters: 0/ << 0.001 >> /0.535 (445244)
+      AER = 0.331492
+      Change in parameters: 0/ << 0.002 >> /0.516 (444165)
+      AER = 0.341786
+      Log-likelihood 1 = -224680.914
+      Log-likelihood 2 = -187858.389
+      AER 1+2 = 0.278
+      ... 2420 lines omitted ...
+    } [10s, cum. 51s]
+  } [51s, cum. 58s]
+  Evaluator.test(Model1:normal) {
+    alignSentencePairs(37 sentences) {
+      Sentence 0/37
+      Sentence 1/37
+      Sentence 2/37
+      ... 34 lines omitted ...
+    }
+    Eval precision/recall tradeoff {
+      Threshold = 0.000000; AER = 0.854896
+      Threshold = 0.010000; AER = 0.504108
+      Threshold = 0.020000; AER = 0.489758
+      Threshold = 0.070000; AER = 0.459350
+      Threshold = 0.160000; AER = 0.427816
+      Threshold = 0.290000; AER = 0.384338
+      Threshold = 0.440000; AER = 0.319222
+      Threshold = 0.610000; AER = 0.308424
+      Threshold = 0.790000; AER = 0.298701
+      Threshold = 0.970000; AER = 0.434783
+      Best threshold = 0.810000, AER = 0.297533
+      ... 91 lines omitted ...
+    } [5.1s, cum. 5.1s]
+    Output alignments {
+      alignSentencePairs(37 sentences) {
+        Sentence 0/37
+        Sentence 1/37
+        Sentence 2/37
+        ... 34 lines omitted ...
+      }
+    } [1.5s, cum. 6.6s]
+    Unaligned: 370, 370
+    A = 351, S = 338, A&S = 204, A&P = 280
+    Precision = 0.797721, Recall = 0.603550, AER = 0.297533, best AER = 0.297533
+  } [6.7s, cum. 1m4s]
+  Evaluator.test(Model1:reversed) {
+    alignSentencePairs(37 sentences) {
+      Sentence 0/37
+      Sentence 1/37
+      Sentence 2/37
+      ... 34 lines omitted ...
+    }
+    Eval precision/recall tradeoff {
+      Threshold = 0.000000; AER = 0.854896
+      Threshold = 0.010000; AER = 0.505556
+      Threshold = 0.020000; AER = 0.492634
+      Threshold = 0.160000; AER = 0.434879
+      Threshold = 0.290000; AER = 0.366604
+      Threshold = 0.440000; AER = 0.313253
+      Threshold = 0.610000; AER = 0.314327
+      Threshold = 0.790000; AER = 0.328725
+      Threshold = 0.970000; AER = 0.503984
+      Best threshold = 0.480000, AER = 0.306202
+      ... 92 lines omitted ...
+    } [5.1s, cum. 5.2s]
+    Output alignments {
+      alignSentencePairs(37 sentences) {
+        Sentence 0/37
+        Sentence 1/37
+        Sentence 2/37
+        ... 34 lines omitted ...
+      }
+    } [1.2s, cum. 6.4s]
+    Unaligned: 250, 365
+    A = 436, S = 338, A&S = 225, A&P = 312
+    Precision = 0.715596, Recall = 0.665680, AER = 0.306202, best AER = 0.306202
+  } [6.5s, cum. 1m11s]
+  Evaluator.test(Intersect(Model1:normal, Model1:reversed, posteriorThreshold=0.39)) {
+    alignSentencePairs(37 sentences) {
+      Sentence 0/37
+      Sentence 1/37
+      Sentence 2/37
+      ... 34 lines omitted ...
+    }
+    Eval precision/recall tradeoff {
+      Threshold = 0.000000; AER = 0.854896
+      Threshold = 0.010000; AER = 0.413009
+      Threshold = 0.020000; AER = 0.399502
+      Threshold = 0.160000; AER = 0.304452
+      Threshold = 0.360000; AER = 0.278027
+      Threshold = 0.530000; AER = 0.302782
+      Threshold = 0.710000; AER = 0.316151
+      Threshold = 0.900000; AER = 0.407336
+      Best threshold = 0.400000, AER = 0.274809
+      ... 93 lines omitted ...
+    } [4.9s, cum. 5.1s]
+    Output alignments {
+      alignSentencePairs(37 sentences) {
+        Sentence 0/37
+        Sentence 1/37
+        Sentence 2/37
+        ... 34 lines omitted ...
+      }
+    } [1.3s, cum. 6.4s]
+    Unaligned: 348, 404
+    A = 323, S = 338, A&S = 209, A&P = 268
+    Precision = 0.829721, Recall = 0.618343, AER = 0.278366, best AER = 0.274809
+  } [6.4s, cum. 1m17s]
+  Writing intersect/union alignments on 2420 sentences {
+    Sentence 0/2420
+    Sentence 1/2420
+    Sentence 2/2420
+    Sentence 602/2420
+    Sentence 770/2420
+    Sentence 940/2420
+    Sentence 1127/2420
+    Sentence 1307/2420
+    Sentence 1479/2420
+    Sentence 1651/2420
+    Sentence 1812/2420
+    Sentence 1970/2420
+    Sentence 2122/2420
+    Sentence 2272/2420
+    ... 2406 lines omitted ...
+  } [15s, cum. 1m33s]
+  saveParams(out/model1/1.params) {
+    Text [7.2s, cum. 7.2s]
+    Binary [8.8s, cum. 16s]
+  } [16s, cum. 1m49s]
+  saveParams(out/model1/2.params) {
+    Text [6.7s, cum. 6.7s]
+    Binary [10s, cum. 16s]
+  } [16s, cum. 2m6s]
+} [2m6s]
+Executing: java -cp classes -ea -mx1660m -server cross.Main -create ++sample.conf -execDir out/hmm -model HMM -stateType ENDS -loadParamsDir out/model1
+main() {
+  Execution directory: out/hmm
+  Reading files {
+    readSentencePairs(sampleData/train) {
+      Reading 1/3: /Users/pliang/research/mt/cross/cross-em-aligner/sampleData/train/hansard.36.1.house.debates.001
+      Reading 2/3: /Users/pliang/research/mt/cross/cross-em-aligner/sampleData/train/hansard.36.1.house.debates.002
+      Reading 3/3: /Users/pliang/research/mt/cross/cross-em-aligner/sampleData/train/hansard.36.1.house.debates.003
+    }
+    readSentencePairs(sampleData/test) {
+      Reading 1/1: /Users/pliang/research/mt/cross/cross-em-aligner/sampleData/test/trial
+    }
+    readSentencePairs(sampleData/test) {
+      Reading 1/1: /Users/pliang/research/mt/cross/cross-em-aligner/sampleData/test/trial
+    }
+    ... 2 lines omitted ...
+  }
+  loadParams(out/model1/1.params.bin) {
+    Loaded Model1:normal
+  } [14s, cum. 15s]
+  loadParams(out/model1/2.params.bin) {
+    Loaded Model1:reversed
+  } [12s, cum. 28s]
+  jointTrain(): 2420 sentences; merge = true {
+    Iteration 1/5 {
+      Sentence 0/2420
+      Create trellis for length I=5 with 13 states
+      Create trellis for length I=5 with 13 states
+      Sentence 7/2420
+      Sentence 37/2420
+      Sentence 46/2420
+      Sentence 57/2420
+      Sentence 75/2420
+      Sentence 95/2420
+      Sentence 117/2420
+      Sentence 141/2420
+      Sentence 169/2420
+      Sentence 199/2420
+      Sentence 234/2420
+      Sentence 268/2420
+      Sentence 295/2420
+      Create trellis for length I=47 with 97 states
+      Sentence 349/2420
+      Sentence 375/2420
+      Sentence 400/2420
+      Sentence 422/2420
+      Sentence 447/2420
+      Sentence 470/2420
+      Sentence 494/2420
+      Sentence 515/2420
+      Sentence 538/2420
+      Sentence 559/2420
+      Sentence 581/2420
+      Sentence 603/2420
+      Sentence 623/2420
+      Sentence 644/2420
+      Sentence 664/2420
+      Sentence 684/2420
+      Sentence 704/2420
+      Sentence 724/2420
+      Sentence 744/2420
+      Sentence 765/2420
+      Sentence 786/2420
+      Sentence 808/2420
+      Sentence 830/2420
+      Sentence 853/2420
+      Sentence 876/2420
+      Sentence 900/2420
+      Sentence 923/2420
+      Sentence 946/2420
+      Sentence 968/2420
+      Sentence 990/2420
+      Sentence 1011/2420
+      Sentence 1034/2420
+      Sentence 1057/2420
+      Sentence 1080/2420
+      Sentence 1103/2420
+      Sentence 1123/2420
+      Sentence 1142/2420
+      Sentence 1164/2420
+      Sentence 1186/2420
+      Sentence 1208/2420
+      Sentence 1230/2420
+      Sentence 1250/2420
+      Sentence 1271/2420
+      Sentence 1291/2420
+      Sentence 1311/2420
+      Sentence 1332/2420
+      Sentence 1353/2420
+      Sentence 1372/2420
+      Sentence 1393/2420
+      Sentence 1413/2420
+      Sentence 1434/2420
+      Sentence 1455/2420
+      Sentence 1476/2420
+      Sentence 1497/2420
+      Sentence 1518/2420
+      Sentence 1537/2420
+      Sentence 1557/2420
+      Sentence 1575/2420
+      Sentence 1594/2420
+      Sentence 1611/2420
+      Sentence 1630/2420
+      Sentence 1649/2420
+      Sentence 1668/2420
+      Sentence 1687/2420
+      Sentence 1705/2420
+      Sentence 1724/2420
+      Sentence 1742/2420
+      Sentence 1760/2420
+      Sentence 1778/2420
+      Sentence 1796/2420
+      Sentence 1814/2420
+      Sentence 1831/2420
+      Sentence 1849/2420
+      Sentence 1866/2420
+      Sentence 1883/2420
+      Sentence 1900/2420
+      Sentence 1917/2420
+      Sentence 1932/2420
+      Sentence 1949/2420
+      Sentence 1965/2420
+      Sentence 1981/2420
+      Sentence 1997/2420
+      Sentence 2013/2420
+      Sentence 2029/2420
+      Sentence 2044/2420
+      Sentence 2060/2420
+      Sentence 2076/2420
+      Sentence 2091/2420
+      Sentence 2107/2420
+      Sentence 2121/2420
+      Sentence 2137/2420
+      Sentence 2153/2420
+      Sentence 2169/2420
+      Sentence 2185/2420
+      Sentence 2201/2420
+      Sentence 2217/2420
+      Sentence 2233/2420
+      Sentence 2249/2420
+      Sentence 2265/2420
+      Sentence 2281/2420
+      Sentence 2297/2420
+      Sentence 2313/2420
+      Sentence 2328/2420
+      Sentence 2343/2420
+      Sentence 2358/2420
+      Sentence 2374/2420
+      Sentence 2390/2420
+      Sentence 2406/2420
+      ERROR: normalize(): distortProbs(state=3) has sum 0, using uniform
+      ERROR: normalize(): distortProbs(state=3) has sum 0, using uniform
+      Change in parameters: 0/ << 0.006 >> /0.985 (445244)
+      AER = 0.237288
+      Change in parameters: 0/ << 0.007 >> /0.995 (444165)
+      AER = 0.213571
+      Log-likelihood 1 = -226638.212
+      Log-likelihood 2 = -187039.510
+      AER 1+2 = 0.170
+      ... 2470 lines omitted ...
+    } [2m42s, cum. 2m42s]
+    Iteration 2/5 {
+      Sentence 0/2420
+      Create trellis for length I=5 with 13 states
+      Sentence 1/2420
+      Create trellis for length I=9 with 21 states
+      Create trellis for length I=47 with 97 states
+      Sentence 91/2420
+      Sentence 114/2420
+      Sentence 137/2420
+      Sentence 163/2420
+      Sentence 188/2420
+      Sentence 217/2420
+      Sentence 246/2420
+      Sentence 274/2420
+      Create trellis for length I=39 with 81 states
+      Sentence 321/2420
+      Sentence 340/2420
+      Sentence 361/2420
+      Sentence 382/2420
+      Create trellis for length I=50 with 103 states
+      Sentence 417/2420
+      Sentence 436/2420
+      Sentence 453/2420
+      Sentence 471/2420
+      Sentence 489/2420
+      Sentence 505/2420
+      Sentence 522/2420
+      Sentence 540/2420
+      Sentence 556/2420
+      Sentence 573/2420
+      Sentence 590/2420
+      Create trellis for length I=60 with 123 states
+      Sentence 623/2420
+      Sentence 640/2420
+      Sentence 657/2420
+      Sentence 673/2420
+      Sentence 690/2420
+      Sentence 706/2420
+      Sentence 722/2420
+      Sentence 739/2420
+      Sentence 756/2420
+      Sentence 773/2420
+      Sentence 791/2420
+      Sentence 809/2420
+      Sentence 827/2420
+      Sentence 846/2420
+      Sentence 865/2420
+      Sentence 885/2420
+      Sentence 905/2420
+      Sentence 924/2420
+      Sentence 943/2420
+      Sentence 961/2420
+      Sentence 980/2420
+      Sentence 998/2420
+      Sentence 1015/2420
+      Sentence 1034/2420
+      Sentence 1053/2420
+      Sentence 1072/2420
+      Sentence 1090/2420
+      Sentence 1108/2420
+      Sentence 1123/2420
+      Sentence 1139/2420
+      Sentence 1154/2420
+      Sentence 1171/2420
+      Sentence 1188/2420
+      Sentence 1205/2420
+      Sentence 1222/2420
+      Sentence 1237/2420
+      Sentence 1254/2420
+      Sentence 1270/2420
+      Sentence 1285/2420
+      Sentence 1301/2420
+      Sentence 1316/2420
+      Sentence 1332/2420
+      Sentence 1348/2420
+      Sentence 1362/2420
+      Sentence 1378/2420
+      Sentence 1394/2420
+      Sentence 1410/2420
+      Sentence 1426/2420
+      Sentence 1442/2420
+      Sentence 1458/2420
+      Sentence 1474/2420
+      Sentence 1490/2420
+      Sentence 1506/2420
+      Sentence 1522/2420
+      Sentence 1537/2420
+      Sentence 1553/2420
+      Sentence 1567/2420
+      Sentence 1582/2420
+      Sentence 1595/2420
+      Sentence 1610/2420
+      Sentence 1625/2420
+      Sentence 1640/2420
+      Sentence 1655/2420
+      Sentence 1670/2420
+      Sentence 1685/2420
+      Sentence 1700/2420
+      Sentence 1714/2420
+      Sentence 1729/2420
+      Sentence 1743/2420
+      Sentence 1758/2420
+      Sentence 1773/2420
+      Sentence 1788/2420
+      Sentence 1803/2420
+      Sentence 1818/2420
+      Sentence 1832/2420
+      Sentence 1846/2420
+      Sentence 1859/2420
+      Sentence 1873/2420
+      Sentence 1887/2420
+      Sentence 1901/2420
+      Sentence 1915/2420
+      Create trellis for length I=85 with 173 states
+      Sentence 1941/2420
+      Sentence 1955/2420
+      Sentence 1968/2420
+      Sentence 1982/2420
+      Sentence 1996/2420
+      Sentence 2010/2420
+      Sentence 2024/2420
+      Sentence 2038/2420
+      Sentence 2051/2420
+      Sentence 2065/2420
+      Sentence 2078/2420
+      Sentence 2090/2420
+      Sentence 2103/2420
+      Sentence 2116/2420
+      Sentence 2127/2420
+      Sentence 2140/2420
+      Sentence 2153/2420
+      Sentence 2166/2420
+      Sentence 2179/2420
+      Sentence 2192/2420
+      Sentence 2205/2420
+      Sentence 2218/2420
+      Sentence 2231/2420
+      Sentence 2244/2420
+      Sentence 2257/2420
+      Sentence 2270/2420
+      Sentence 2283/2420
+      Sentence 2296/2420
+      Sentence 2309/2420
+      Sentence 2321/2420
+      Sentence 2334/2420
+      Sentence 2346/2420
+      Sentence 2358/2420
+      Sentence 2371/2420
+      Sentence 2384/2420
+      Sentence 2397/2420
+      Sentence 2410/2420
+      ERROR: normalize(): distortProbs(state=3) has sum 0, using uniform
+      ERROR: normalize(): distortProbs(state=3) has sum 0, using uniform
+      Change in parameters: 0/ << 0.004 >> /0.971 (445244)
+      AER = 0.213675
+      PROG_STATUS: time = 6m14s, memory = 82M
+      Change in parameters: 0/ << 0.004 >> /0.981 (444165)
+      AER = 0.193694
+      Log-likelihood 1 = -208377.265
+      Log-likelihood 2 = -166738.304
+      AER 1+2 = 0.153
+      ... 2405 lines omitted ...
+    } [3m5s, cum. 5m47s]
+    Iteration 3/5 {
+      Sentence 0/2420
+      Create trellis for length I=5 with 13 states
+      Sentence 1/2420
+      Sentence 54/2420
+      Sentence 75/2420
+      Sentence 94/2420
+      Sentence 119/2420
+      Sentence 145/2420
+      Create trellis for length I=53 with 109 states
+      Sentence 202/2420
+      Sentence 236/2420
+      Sentence 268/2420
+      Sentence 294/2420
+      Sentence 321/2420
+      Sentence 344/2420
+      Sentence 368/2420
+      Create trellis for length I=70 with 143 states
+      Sentence 412/2420
+      Sentence 435/2420
+      Sentence 456/2420
+      Sentence 478/2420
+      Sentence 497/2420
+      Sentence 518/2420
+      Sentence 538/2420
+      Sentence 557/2420
+      Sentence 577/2420
+      Sentence 596/2420
+      Sentence 614/2420
+      Sentence 632/2420
+      Sentence 650/2420
+      Sentence 667/2420
+      Sentence 684/2420
+      Sentence 701/2420
+      Sentence 718/2420
+      Sentence 735/2420
+      Sentence 753/2420
+      Sentence 771/2420
+      Sentence 789/2420
+      Sentence 808/2420
+      Sentence 827/2420
+      Sentence 847/2420
+      Sentence 867/2420
+      Sentence 887/2420
+      Sentence 907/2420
+      Sentence 926/2420
+      Sentence 946/2420
+      Sentence 964/2420
+      Create trellis for length I=75 with 153 states
+      Sentence 1003/2420
+      Sentence 1021/2420
+      Sentence 1041/2420
+      Sentence 1061/2420
+      Sentence 1080/2420
+      Sentence 1099/2420
+      Sentence 1117/2420
+      Sentence 1134/2420
+      Sentence 1149/2420
+      Sentence 1167/2420
+      Sentence 1185/2420
+      Sentence 1203/2420
+      Sentence 1221/2420
+      Sentence 1237/2420
+      Sentence 1255/2420
+      Sentence 1273/2420
+      Sentence 1289/2420
+      Create trellis for length I=65 with 133 states
+      Sentence 1323/2420
+      Sentence 1340/2420
+      Create trellis for length I=77 with 157 states
+      Sentence 1372/2420
+      Sentence 1389/2420
+      Sentence 1406/2420
+      Sentence 1423/2420
+      Sentence 1440/2420
+      Sentence 1458/2420
+      Sentence 1476/2420
+      Sentence 1494/2420
+      Sentence 1512/2420
+      Create trellis for length I=72 with 147 states
+      Sentence 1545/2420
+      Sentence 1562/2420
+      Sentence 1576/2420
+      Sentence 1592/2420
+      Sentence 1606/2420
+      Sentence 1621/2420
+      Sentence 1637/2420
+      Sentence 1652/2420
+      Sentence 1667/2420
+      Sentence 1683/2420
+      Sentence 1698/2420
+      Sentence 1712/2420
+      Sentence 1727/2420
+      Sentence 1741/2420
+      Sentence 1756/2420
+      Sentence 1771/2420
+      Sentence 1786/2420
+      Sentence 1801/2420
+      Sentence 1816/2420
+      Sentence 1830/2420
+      Sentence 1845/2420
+      Sentence 1859/2420
+      Sentence 1874/2420
+      Sentence 1889/2420
+      Sentence 1904/2420
+      Sentence 1919/2420
+      Sentence 1932/2420
+      Sentence 1947/2420
+      Sentence 1962/2420
+      Sentence 1976/2420
+      Sentence 1990/2420
+      Sentence 2004/2420
+      Sentence 2018/2420
+      Sentence 2032/2420
+      Sentence 2045/2420
+      Sentence 2059/2420
+      Sentence 2073/2420
+      Sentence 2087/2420
+      Sentence 2100/2420
+      Sentence 2114/2420
+      Sentence 2126/2420
+      Sentence 2140/2420
+      Sentence 2154/2420
+      Sentence 2168/2420
+      Sentence 2182/2420
+      Sentence 2196/2420
+      Sentence 2210/2420
+      Sentence 2224/2420
+      Sentence 2238/2420
+      Sentence 2252/2420
+      Sentence 2266/2420
+      Sentence 2280/2420
+      Sentence 2294/2420
+      Sentence 2308/2420
+      Sentence 2321/2420
+      Sentence 2335/2420
+      Sentence 2348/2420
+      Sentence 2361/2420
+      Sentence 2375/2420
+      Sentence 2389/2420
+      Sentence 2403/2420
+      Sentence 2417/2420
+      ERROR: normalize(): distortProbs(state=3) has sum 0, using uniform
+      ERROR: normalize(): distortProbs(state=3) has sum 0, using uniform
+      Change in parameters: 0/ << 0.002 >> /0.949 (445244)
+      AER = 0.202790
+      Change in parameters: 0/ << 0.002 >> /0.995 (444165)
+      AER = 0.182941
+      Log-likelihood 1 = -203447.453
+      Log-likelihood 2 = -160589.052
+      AER 1+2 = 0.146
+      ... 2414 lines omitted ...
+    } [2m55s, cum. 8m42s]
+    Iteration 4/5 {
+      Sentence 0/2420
+      Create trellis for length I=5 with 13 states
+      Sentence 1/2420
+      Sentence 46/2420
+      Sentence 58/2420
+      Sentence 76/2420
+      Create trellis for length I=46 with 95 states
+      Sentence 113/2420
+      Sentence 134/2420
+      Sentence 159/2420
+      Sentence 182/2420
+      Sentence 208/2420
+      Sentence 237/2420
+      Sentence 264/2420
+      Sentence 288/2420
+      Sentence 310/2420
+      Sentence 333/2420
+      Sentence 355/2420
+      Sentence 378/2420
+      Sentence 398/2420
+      Sentence 415/2420
+      Sentence 435/2420
+      Sentence 454/2420
+      Sentence 474/2420
+      Sentence 493/2420
+      Sentence 510/2420
+      Sentence 528/2420
+      Sentence 547/2420
+      Sentence 564/2420
+      Sentence 582/2420
+      Sentence 600/2420
+      Sentence 616/2420
+      Sentence 633/2420
+      Sentence 650/2420
+      Sentence 666/2420
+      Sentence 682/2420
+      Sentence 698/2420
+      Sentence 714/2420
+      Sentence 730/2420
+      Sentence 746/2420
+      Sentence 763/2420
+      Sentence 780/2420
+      Sentence 797/2420
+      Sentence 815/2420
+      Sentence 833/2420
+      Sentence 852/2420
+      Sentence 871/2420
+      Sentence 890/2420
+      Sentence 909/2420
+      Sentence 927/2420
+      Sentence 946/2420
+      Sentence 963/2420
+      Sentence 982/2420
+      Sentence 1000/2420
+      Sentence 1017/2420
+      Sentence 1036/2420
+      Sentence 1055/2420
+      Sentence 1074/2420
+      Sentence 1093/2420
+      Sentence 1111/2420
+      Sentence 1126/2420
+      Create trellis for length I=68 with 139 states
+      Sentence 1157/2420
+      Sentence 1173/2420
+      Sentence 1190/2420
+      Sentence 1207/2420
+      Sentence 1224/2420
+      Sentence 1239/2420
+      Sentence 1255/2420
+      Sentence 1271/2420
+      Sentence 1285/2420
+      Sentence 1301/2420
+      Sentence 1316/2420
+      Sentence 1332/2420
+      Sentence 1348/2420
+      Sentence 1362/2420
+      Sentence 1378/2420
+      Sentence 1394/2420
+      Sentence 1410/2420
+      Sentence 1426/2420
+      Sentence 1442/2420
+      Sentence 1458/2420
+      Sentence 1474/2420
+      Sentence 1490/2420
+      Sentence 1506/2420
+      Sentence 1522/2420
+      Sentence 1537/2420
+      Sentence 1552/2420
+      Create trellis for length I=79 with 161 states
+      Sentence 1580/2420
+      Create trellis for length I=78 with 159 states
+      Sentence 1608/2420
+      Sentence 1623/2420
+      Sentence 1638/2420
+      Sentence 1653/2420
+      Sentence 1668/2420
+      Sentence 1683/2420
+      Sentence 1698/2420
+      Sentence 1712/2420
+      Sentence 1727/2420
+      Sentence 1741/2420
+      Sentence 1756/2420
+      Sentence 1771/2420
+      Sentence 1786/2420
+      Sentence 1801/2420
+      Sentence 1816/2420
+      Sentence 1830/2420
+      Sentence 1845/2420
+      Sentence 1859/2420
+      Sentence 1873/2420
+      Sentence 1887/2420
+      Sentence 1901/2420
+      Sentence 1915/2420
+      Create trellis for length I=85 with 173 states
+      Sentence 1942/2420
+      Sentence 1956/2420
+      Sentence 1969/2420
+      Sentence 1983/2420
+      Sentence 1997/2420
+      Sentence 2011/2420
+      Sentence 2025/2420
+      Sentence 2039/2420
+      Sentence 2052/2420
+      Sentence 2066/2420
+      Sentence 2080/2420
+      Sentence 2093/2420
+      Sentence 2106/2420
+      Sentence 2119/2420
+      Sentence 2130/2420
+      Sentence 2143/2420
+      Sentence 2156/2420
+      Sentence 2169/2420
+      Sentence 2182/2420
+      Sentence 2195/2420
+      Sentence 2208/2420
+      Sentence 2221/2420
+      Sentence 2234/2420
+      Sentence 2247/2420
+      Sentence 2260/2420
+      Sentence 2273/2420
+      Sentence 2287/2420
+      Sentence 2301/2420
+      Create trellis for length I=76 with 155 states
+      Sentence 2328/2420
+      Create trellis for length I=100 with 203 states
+      Sentence 2354/2420
+      Sentence 2367/2420
+      Sentence 2380/2420
+      Sentence 2394/2420
+      Sentence 2408/2420
+      ERROR: normalize(): distortProbs(state=3) has sum 0, using uniform
+      ERROR: normalize(): distortProbs(state=3) has sum 0, using uniform
+      Change in parameters: 0/ << 0.001 >> /0.950 (445244)
+      AER = 0.192849
+      Change in parameters: 0/ << 0.001 >> /0.977 (444165)
+      AER = 0.174405
+      Log-likelihood 1 = -199242.180
+      Log-likelihood 2 = -156279.701
+      AER 1+2 = 0.138
+      ... 2405 lines omitted ...
+    } [3m2s, cum. 11m44s]
+    Iteration 5/5 {
+      Sentence 0/2420
+      Create trellis for length I=5 with 13 states
+      Sentence 1/2420
+      Sentence 54/2420
+      Sentence 74/2420
+      Create trellis for length I=46 with 95 states
+      Sentence 116/2420
+      Sentence 141/2420
+      Sentence 170/2420
+      Sentence 198/2420
+      Sentence 230/2420
+      Sentence 261/2420
+      Sentence 289/2420
+      Sentence 315/2420
+      Sentence 338/2420
+      Sentence 362/2420
+      Sentence 385/2420
+      Sentence 403/2420
+      Sentence 422/2420
+      Sentence 441/2420
+      Sentence 458/2420
+      Sentence 476/2420
+      Sentence 494/2420
+      Sentence 509/2420
+      Sentence 526/2420
+      Sentence 544/2420
+      Sentence 560/2420
+      Sentence 577/2420
+      Sentence 594/2420
+      Sentence 610/2420
+      Sentence 627/2420
+      Sentence 644/2420
+      Sentence 661/2420
+      Sentence 677/2420
+      Sentence 694/2420
+      Sentence 711/2420
+      Sentence 728/2420
+      Sentence 745/2420
+      Sentence 762/2420
+      Sentence 780/2420
+      Sentence 798/2420
+      Sentence 816/2420
+      Sentence 835/2420
+      Sentence 854/2420
+      Sentence 873/2420
+      Sentence 893/2420
+      Sentence 913/2420
+      Sentence 932/2420
+      Sentence 952/2420
+      Sentence 970/2420
+      Sentence 989/2420
+      Sentence 1007/2420
+      Sentence 1027/2420
+      Sentence 1047/2420
+      Sentence 1067/2420
+      Sentence 1087/2420
+      Sentence 1107/2420
+      Sentence 1124/2420
+      Create trellis for length I=68 with 139 states
+      Sentence 1159/2420
+      Sentence 1178/2420
+      Sentence 1197/2420
+      Sentence 1216/2420
+      Sentence 1233/2420
+      Sentence 1252/2420
+      Sentence 1271/2420
+      Sentence 1288/2420
+      Create trellis for length I=65 with 133 states
+      Sentence 1323/2420
+      Sentence 1341/2420
+      Sentence 1357/2420
+      Sentence 1375/2420
+      Sentence 1393/2420
+      Sentence 1411/2420
+      Sentence 1429/2420
+      Sentence 1447/2420
+      Sentence 1465/2420
+      Sentence 1483/2420
+      Sentence 1501/2420
+      Sentence 1519/2420
+      Sentence 1536/2420
+      Sentence 1554/2420
+      Sentence 1570/2420
+      Sentence 1587/2420
+      Sentence 1602/2420
+      Sentence 1619/2420
+      Sentence 1636/2420
+      Sentence 1653/2420
+      Sentence 1670/2420
+      Sentence 1687/2420
+      Sentence 1703/2420
+      Sentence 1719/2420
+      Create trellis for length I=57 with 117 states
+      Sentence 1750/2420
+      Sentence 1766/2420
+      Sentence 1782/2420
+      Sentence 1798/2420
+      Sentence 1814/2420
+      Sentence 1830/2420
+      Sentence 1846/2420
+      Sentence 1861/2420
+      Sentence 1877/2420
+      Sentence 1893/2420
+      Sentence 1909/2420
+      Sentence 1925/2420
+      Sentence 1939/2420
+      Sentence 1955/2420
+      Sentence 1970/2420
+      Sentence 1986/2420
+      Sentence 2002/2420
+      Sentence 2018/2420
+      Sentence 2034/2420
+      Sentence 2049/2420
+      Sentence 2065/2420
+      Sentence 2081/2420
+      Sentence 2096/2420
+      Sentence 2111/2420
+      Sentence 2124/2420
+      Sentence 2139/2420
+      Sentence 2154/2420
+      Sentence 2169/2420
+      Sentence 2184/2420
+      Sentence 2199/2420
+      Sentence 2214/2420
+      Sentence 2229/2420
+      Sentence 2245/2420
+      Sentence 2261/2420
+      Sentence 2277/2420
+      Sentence 2293/2420
+      Sentence 2309/2420
+      Sentence 2324/2420
+      Sentence 2340/2420
+      Sentence 2354/2420
+      Sentence 2369/2420
+      Sentence 2384/2420
+      Sentence 2399/2420
+      Sentence 2415/2420
+      ERROR: normalize(): distortProbs(state=3) has sum 0, using uniform
+      ERROR: normalize(): distortProbs(state=3) has sum 0, using uniform
+      Change in parameters: 0/ << 6.80e-04 >> /0.993 (445244)
+      AER = 0.188865
+      Change in parameters: 0/ << 8.38e-04 >> /0.987 (444165)
+      AER = 0.170091
+      Log-likelihood 1 = -197348.321
+      Log-likelihood 2 = -154643.466
+      AER 1+2 = 0.138
+      ... 2418 lines omitted ...
+    } [2m39s, cum. 14m24s]
+  } [14m24s, cum. 14m53s]
+  Evaluator.test(HMM:normal) {
+    alignSentencePairs(37 sentences) {
+      Sentence 0/37
+      Sentence 1/37
+      Sentence 2/37
+      ... 34 lines omitted ...
+    }
+    Eval precision/recall tradeoff {
+      Threshold = 0.000000; AER = 0.854896
+      Threshold = 0.010000; AER = 0.283036
+      Threshold = 0.020000; AER = 0.264570
+      Threshold = 0.160000; AER = 0.216189
+      Threshold = 0.360000; AER = 0.190217
+      Threshold = 0.570000; AER = 0.178652
+      Threshold = 0.770000; AER = 0.169177
+      Threshold = 0.970000; AER = 0.156489
+      Best threshold = 0.970000, AER = 0.156489
+      ... 93 lines omitted ...
+    } [5.2s, cum. 5.4s]
+    Output alignments {
+      alignSentencePairs(37 sentences) {
+        Sentence 0/37
+        Sentence 1/37
+        Sentence 2/37
+        ... 34 lines omitted ...
+      }
+    } [2.9s, cum. 8.4s]
+    Unaligned: 260, 273
+    A = 448, S = 338, A&S = 265, A&P = 398
+    Precision = 0.888393, Recall = 0.784024, AER = 0.156489, best AER = 0.156489
+  } [8.4s, cum. 15m2s]
+  Evaluator.test(HMM:reversed) {
+    alignSentencePairs(37 sentences) {
+      Sentence 0/37
+      Sentence 1/37
+      Sentence 2/37
+      ... 34 lines omitted ...
+    }
+    Eval precision/recall tradeoff {
+      Threshold = 0.000000; AER = 0.854896
+      Threshold = 0.010000; AER = 0.265250
+      Threshold = 0.020000; AER = 0.242747
+      Threshold = 0.170000; AER = 0.184865
+      Threshold = 0.330000; AER = 0.172297
+      Threshold = 0.500000; AER = 0.166473
+      Threshold = 0.680000; AER = 0.158788
+      Threshold = 0.860000; AER = 0.148338
+      Best threshold = 0.870000, AER = 0.147436
+      ... 93 lines omitted ...
+    } [5.7s, cum. 6.0s]
+    Output alignments {
+      alignSentencePairs(37 sentences) {
+        Sentence 0/37
+        Sentence 1/37
+        Sentence 2/37
+        ... 34 lines omitted ...
+      }
+    } [2.8s, cum. 8.9s]
+    Unaligned: 219, 303
+    A = 442, S = 338, A&S = 269, A&P = 396
+    Precision = 0.895928, Recall = 0.795858, AER = 0.147436, best AER = 0.147436
+  } [8.9s, cum. 15m10s]
+  Evaluator.test(Intersect(HMM:normal, HMM:reversed, posteriorThreshold=0.39)) {
+    alignSentencePairs(37 sentences) {
+      Sentence 0/37
+      Sentence 1/37
+      Sentence 2/37
+      ... 34 lines omitted ...
+    }
+    Eval precision/recall tradeoff {
+      Threshold = 0.000000; AER = 0.854896
+      Threshold = 0.010000; AER = 0.181136
+      Threshold = 0.020000; AER = 0.173436
+      Threshold = 0.200000; AER = 0.144593
+      Threshold = 0.410000; AER = 0.137845
+      Threshold = 0.600000; AER = 0.141009
+      Threshold = 0.800000; AER = 0.140541
+      Best threshold = 0.460000, AER = 0.133501
+      ... 94 lines omitted ...
+    } [4.7s, cum. 5.2s]
+    Output alignments {
+      alignSentencePairs(37 sentences) {
+        Sentence 0/37
+        Sentence 1/37
+        Sentence 2/37
+        ... 34 lines omitted ...
+      }
+    } [2.0s, cum. 7.3s]
+    Unaligned: 205, 261
+    A = 460, S = 338, A&S = 277, A&P = 411
+    Precision = 0.893478, Recall = 0.819527, AER = 0.137845, best AER = 0.133501
+  } [7.3s, cum. 15m18s]
+  Writing intersect/union alignments on 2420 sentences {
+    Sentence 0/2420
+    Create trellis for length I=5 with 13 states
+    Sentence 1/2420
+    Sentence 666/2420
+    Sentence 702/2420
+    Sentence 735/2420
+    Sentence 767/2420
+    Sentence 801/2420
+    Sentence 836/2420
+    Sentence 872/2420
+    Sentence 910/2420
+    Sentence 947/2420
+    Sentence 982/2420
+    Sentence 1016/2420
+    Sentence 1053/2420
+    Sentence 1090/2420
+    Sentence 1124/2420
+    Sentence 1157/2420
+    Sentence 1193/2420
+    Sentence 1229/2420
+    Sentence 1263/2420
+    Sentence 1296/2420
+    Sentence 1329/2420
+    Sentence 1360/2420
+    Sentence 1393/2420
+    Sentence 1425/2420
+    Sentence 1458/2420
+    Sentence 1491/2420
+    Sentence 1524/2420
+    Sentence 1555/2420
+    Sentence 1584/2420
+    Sentence 1612/2420
+    Sentence 1642/2420
+    Sentence 1672/2420
+    Create trellis for length I=62 with 127 states
+    Sentence 1731/2420
+    Sentence 1760/2420
+    Sentence 1790/2420
+    Sentence 1820/2420
+    Sentence 1849/2420
+    Sentence 1877/2420
+    Sentence 1906/2420
+    Sentence 1933/2420
+    Sentence 1962/2420
+    Sentence 1989/2420
+    Sentence 2017/2420
+    Sentence 2044/2420
+    Sentence 2071/2420
+    Sentence 2097/2420
+    Sentence 2122/2420
+    Sentence 2149/2420
+    Sentence 2176/2420
+    Sentence 2203/2420
+    Sentence 2230/2420
+    Sentence 2257/2420
+    Sentence 2284/2420
+    Sentence 2312/2420
+    Sentence 2339/2420
+    Sentence 2365/2420
+    Sentence 2392/2420
+    Sentence 2419/2420
+    ... 2483 lines omitted ...
+  } [1m31s, cum. 16m49s]
+  saveParams(out/hmm/1.params) {
+    Text [3.2s, cum. 3.2s]
+    Binary [9.9s, cum. 13s]
+  } [13s, cum. 17m2s]
+  saveParams(out/hmm/2.params) {
+    Text [2.4s, cum. 2.4s]
+    Binary [10s, cum. 12s]
+  } [12s, cum. 17m15s]
+} [17m15s]
+main() {
+  Reading alignments
+  Writing 100 alignments
+}
+main() {
+  Reading alignments
+  Writing 100 alignments
+}
