@@ -98,22 +98,22 @@ c_values = [0.001, 0.01, 0.1, 1, 10, 100]
 #     accuracies.append(classifier_accuracy(clf, nlp, ["concr", "abstr"], "Abstract", only_accuracy=True))
 # plot_graph(c_values, accuracies, "abstr_C", "C", log=True)
 
-accuracies = []
-for C in c_values:
-    clf, nlp = classifier("abstract.txt", "concrete.txt", C=C)
-    accuracies.append(classifier_accuracy(clf, nlp, ["concr", "abstr"], "Abstract", only_accuracy=True))
-plot_graph(c_values, accuracies, "count_C", "C", log=True)
+# accuracies = []
+# for C in c_values:
+#     clf, nlp = classifier("abstract.txt", "concrete.txt", C=C)
+#     accuracies.append(classifier_accuracy(clf, nlp, ["concr", "abstr"], "Abstract", only_accuracy=True))
+# plot_graph(c_values, accuracies, "count_C", "C", log=True)
 
-accuracies = []
-for i in range(11):
-    clf, nlp = classifier("abstract.txt", "concrete.txt", mixed=i/10)
-    accuracies.append(classifier_accuracy(clf, nlp, ["concr", "abstr"], "Abstract", only_accuracy=True))
-x_vals = [i/10 for i in range(11)]
-plot_graph(x_vals, accuracies, "abstr_l1", "l1_ratio")
+# accuracies = []
+# for i in range(11):
+#     clf, nlp = classifier("abstract.txt", "concrete.txt", mixed=i/10)
+#     accuracies.append(classifier_accuracy(clf, nlp, ["concr", "abstr"], "Abstract", only_accuracy=True))
+# x_vals = [i/10 for i in range(11)]
+# plot_graph(x_vals, accuracies, "abstr_l1", "l1_ratio")
 
-accuracies = []
-for i in range(11):
-    clf, nlp = classifier("abstract.txt", "concrete.txt", mixed=i/10)
-    accuracies.append(classifier_accuracy(clf, nlp, ["concr", "abstr"], "Abstract", only_accuracy=True, count=True))
-x_vals = [i/10 for i in range(11)]
-plot_graph(x_vals, accuracies, "count_l1", "l1_ratio")
+# accuracies = []
+# for i in range(11):
+#     clf, nlp = classifier("abstract.txt", "concrete.txt", mixed=i/10)
+#     accuracies.append(classifier_accuracy(clf, nlp, ["concr", "abstr"], "Abstract", only_accuracy=True, count=True))
+# x_vals = [i/10 for i in range(11)]
+# plot_graph(x_vals, accuracies, "count_l1", "l1_ratio")

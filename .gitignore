@@ -8,3 +8,4 @@ distilbert/results_synthetic/**/checkpoint-*/
 data_augmentation/text_alignment/sample.out/
 discarded code/distilbert_model/model.safetensors
 datasets/parallel_corpus/lang8_Eng_1.0.xml
+syntactic/parallel_corpus/lang8_Eng_1.0.xml

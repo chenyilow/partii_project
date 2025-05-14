@@ -1,0 +1,6 @@
+item_id,NL,NP,Oblig,Error,Target,ErType,ErType2,def,ref,Hawkins,HeadN,Ntype,Abstract,Rev_abstr,Synt,modif
+1,Japanese,"We 've known each other for only half a year , but his lesson was a lot of fun .",obl,correct,a,correct_a,correct_art,-,-,-,year,sing,concr,concr,obj,no_mod
+2,Mandarin,I heard a sentence last night when I watched TV .,obl,correct,a,correct_a,correct_art,indef,ref,indef,sentence,mass,abstr,abstr,obj,no_mod
+3,Mandarin,I heard a sentence last night when I watched TV .,obl_om,correct,zero,correct_zero,correct_om,indef,ref,indef,TV,sing,concr,concr,obj,no_mod
+4,Mandarin,"It is like when you are confronted with frustration , you have to keep your confidence .",obl_om,correct,zero,correct_zero,correct_om,indef,nonref,indef,frustration,mass,abstr,abstr,obj,no_mod
+5,Russian,"When I was at school , we painted a lot of wooden handicrafts like small plates and cases .",obl,correct,a,correct_a,correct_art,-,-,-,lot,mass,abstr,abstr,obj,no_mod
